@@ -1,0 +1,67 @@
+------------------------------------------------------------------------
+Second Largest
+class Solution {
+    public int getSecondLargest(int[] arr) 
+    {
+        // Code Here
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int num : arr) 
+        {
+          if (num > largest) 
+          {
+            secondLargest = largest;
+            largest = num;
+          } 
+          else if (num > secondLargest && num != largest) 
+          {
+            secondLargest = num;
+          }
+    }
+
+    // Return -1 if no valid second largest element exists
+       return (secondLargest == Integer.MIN_VALUE) ? -1 : secondLargest;
+    }
+}
+
+-----------------------------------------------------------------------------
+Move All Zeroes to End
+class Solution {
+    void pushZerosToEnd(int[] arr) 
+    {
+        int n = arr.length;
+        int nonZeroIndex = 0; // Tracks the position to place non-zero elements
+
+        // Move all non-zero elements to the front
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != 0) {
+                arr[nonZeroIndex++] = arr[i];
+            }
+        }
+
+        // Fill the remaining positions with zeros
+        while (nonZeroIndex < n) {
+            arr[nonZeroIndex++] = 0;
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+Reverse an Array
+class Solution {
+    public void reverseArray(int arr[]) 
+    {
+        // code here
+        int i=0;
+        int j=arr.length-1;
+        while(i<j)
+        {
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+    }
+}
